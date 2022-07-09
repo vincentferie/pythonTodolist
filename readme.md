@@ -14,17 +14,17 @@
 
 
 ## Fonctionalités
--[x] Ajouter une collection
+[x] Ajouter une collection
 
--[x] Supprimer une collection
+[x] Supprimer une collection
 
--[x] Empêcher l'ajout d'une collection de doublon
+[x] Empêcher l'ajout d'une collection de doublon
 
--[x] Ajouter une tâche (rleié à une collection)
+[x] Ajouter une tâche (rleié à une collection)
 
--[x] Supprimer une tâche
+[x] Supprimer une tâche
 
--[x] Afficher les tasks d'une collection
+[x] Afficher les tasks d'une collection
 
 --------------------------------------------------------
 

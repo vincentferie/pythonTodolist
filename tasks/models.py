@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Collection(models.Model):
+    objects = None
     name = models.CharField(max_length=80)
     slug = models.SlugField()
 
