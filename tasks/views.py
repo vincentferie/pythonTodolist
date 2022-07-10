@@ -1,14 +1,17 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from django.utils.html import escape
 
 from tasks.models import Collection, Task
 
 
 def index(request):
+
     context = {}
     collection = Collection.get_default_collection()
-    context["collections"] = Collection.objects.order_by("name")
+    context["collections"] = Collection.objects.order_by("-slug")
+    context["tasks"] = Collection.task_set.order_by("description")
+
     return render(request, 'tasks/index.html', context=context)
 
 
@@ -22,7 +25,12 @@ def add_collection(request):
 
 
 def add_task(request):
-    collection = Collection.get_default_collection()
+    collection  = Collection.get_default_collection()
     description = escape(request.POST.get("task-description"))
     Task.objects.create(description=description, collection=collection)
     return HttpResponse(description)
+
+
+def get_tasks(request, collection_pk):
+    collection = get_object_or_404(Collection, pk=collection_pk)
+    return collection.task.set.order_by("description")
